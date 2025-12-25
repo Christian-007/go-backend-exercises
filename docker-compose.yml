@@ -1,0 +1,8 @@
+services:
+  postgresql:
+    image: postgres:12-alpine
+    container_name: gbe_postgres12
+    env_file:
+      - ./.env
+    ports:
+      - "5433:5432"

@@ -9,12 +9,12 @@ migrate_up_all:
 	migrate -path migrations -database "${POSTGRES_URL}" -verbose up
 
 migrate_down_all:
-	migrate -path migrations -database "postgresql://${DB_USER}:${POSTGRES_PASSWORD}@localhost:5433/fit_forge?sslmode=disable" -verbose down
+	migrate -path migrations -database "${POSTGRES_URL}" -verbose down
 
 migrate_up_1:
-	migrate -path migrations -database "postgresql://${DB_USER}:${POSTGRES_PASSWORD}@localhost:5433/fit_forge?sslmode=disable" -verbose up 1
+	migrate -path migrations -database "${POSTGRES_URL}" -verbose up 1
 
 migrate_down_1:
-	migrate -path migrations -database "postgresql://${DB_USER}:${POSTGRES_PASSWORD}@localhost:5433/fit_forge?sslmode=disable" -verbose down 1
+	migrate -path migrations -database "${POSTGRES_URL}" -verbose down 1
 
 .PHONY: run migrate_up_all migrate_down_all migrate_up_1 migrate_down_1
